@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to left, #6aa0dd, #ebd0e0);
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .welcome-container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid blue;
+            border-radius: 5px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h2>Welcome!</h2>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const userId = params.get('user-id');
+            const email = params.get('email');
+            if (userId && email) {
+                document.getElementById('message').textContent = `User ID: ${userId}, Email: ${email}`;
+            } else {
+                document.getElementById('message').textContent = 'User ID or Email not found in the URL parameters.';
+            }
+        };
+    </script>
+</body>
+</html>

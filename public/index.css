@@ -1,0 +1,371 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: white;
+}
+.cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.card {
+    width: 80vw;
+    box-shadow: 3px 3px 2px rgba(138, 212, 131, 0.8);
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    margin: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    padding: 3px;
+    max-height: 10%;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    background-color: purple;
+    color: #fff;
+    text-shadow: 1px 1px rgba(241, 247, 236, 0.4);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card-content {
+    padding: 15px;
+    display: none;
+}
+
+.card-content p {
+    margin: 0;
+}
+
+.card.expanded .card-content {
+    display: block;
+}
+.header-class{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+/*new transaction part */
+.card form {
+    margin-top: 15px;
+}
+
+.card form label {
+    display: block;
+    margin-bottom: 5px;
+}
+#display-bills{
+    background-color: rgb(150, 149, 149);
+}
+.card form input[type="text"],
+.card form input[type="number"],
+.card form input[type="date"],
+.card form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: rgb(241, 240, 223);
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.card form input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #24df24;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card form input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+.card form fieldset {
+    margin-top: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.card form legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card form fieldset div {
+    margin-bottom: 10px;
+}
+
+.card form fieldset div label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.card form fieldset div input[type="radio"] {
+    margin-right: 5px;
+}
+
+.card form #people-details {
+    margin-top: 15px;
+}
+
+.card form #people-details > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card form #people-details > div input[type="text"],
+.card form #people-details > div input[type="email"],
+.card form #people-details > div input[type="tel"] {
+    flex: 1;
+    
+    margin-right: 10px;
+}
+.amountss{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.amountss label{
+    width: 30vw;
+    margin-left: 2vw;
+}
+.amountss input[type="number"]{
+    margin-right: 20%;
+}
+
+.card form #people-details > div label {
+    flex: 0 0; /* Fixed width for labels */
+}
+/* Existing CSS styles */
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .card-header {
+        padding: 3px;
+        height: 10vh;
+        max-height: 10%;
+        text-align: center;
+        background-color: purple;
+        color: #fff;
+        font-weight: bold;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    .card-header h3 {
+        font-size: 2em;
+    }
+    .card form input[type="text"],
+    .card form input[type="number"],
+    .card form input[type="date"],
+    .card form input[type="email"],
+    .card form input[type="tel"] {
+        width: calc(100% - 20px); /* Adjust input width for smaller screens */
+        
+    }
+    .cards{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+    }
+    #new-transaction{
+        background-color: black;
+        color: purple;
+    }
+
+    .card form fieldset div {
+        display: flex;
+        flex-direction: column; /* Change to column layout for smaller screens */
+    }
+
+    .card form #people-details > div {
+        flex-direction: column; /* Change to column layout for smaller screens */
+    }
+    .card form #people-details label{
+        margin: 0;
+    }
+    .card form #people-details > div input[type="text"],
+    .card form #people-details > div input[type="email"],
+    .card form #people-details > div input[type="tel"] {
+        margin-right: 0; /* Remove right margin for input fields in column layout */
+    }
+
+    .card form #people-details > div label {
+        width: auto; /* Let labels take up as much space as needed */
+    }
+   
+   .card form #manual-distribution div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .card form #manual-distribution div input[type="text"] {
+        width: calc(100% - 110px); /* Adjust input width for manual distribution fields */
+        margin-left: 10px; /* Add left margin for input fields */
+    }
+
+    .card form #manual-distribution div label {
+        flex: 0 0 auto; /* Allow labels to take up as much space as needed */
+    }
+
+    .header-class {
+        flex-direction: row;
+    }
+}
+/* display expenses */
+hr{
+    padding: 0.5px;
+    background-color: gray;
+    margin: 20px 0;
+}
+.transaction-card {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: black;
+    color: purple;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    cursor: not-allowed;
+}
+
+.transaction-header {
+   
+    padding: 8px;
+    color: blue;
+    border-bottom: 1px solid gray;
+    font-weight: bold;
+}
+
+.transaction-content {
+    padding: 10px;
+}
+
+fieldset {
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+#new-transaction{
+    background-color: rgb(63, 0, 55);
+    color: white;
+}
+.remove-button{
+    background: red;
+    color: white;
+   margin-left: 20px;
+   padding: 1%;
+   border-radius: 10px;
+   cursor: pointer;
+}
+/*payment*/
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    color:black;
+    background-color:black;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(142, 33, 214);
+}
+
+.section {
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #bab4be;
+    border-radius: 5px;
+}
+
+.billing-address,
+.payment-method {
+    width: 48%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.row .section {
+    flex: 1;
+    min-width: 300px;
+}
+.submit-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.submit-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: purple;
+    border: none;
+    border-radius: 5px;
+    width: inherit;
+    cursor: pointer;
+}
+
+.submit-container button:hover {
+    background-color: darkviolet;
+}
+@media screen and (max-width: 768px) {
+    .billing-address,
+    .payment-method {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .row .section {
+        min-width: 100%;
+    }
+}

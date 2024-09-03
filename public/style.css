@@ -1,0 +1,232 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    background-color: #007bff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:sticky;
+}
+.navbar-brand {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+.navbar-brand img {
+    height: 50px;
+    margin-right: 10px;
+}
+.navbar-toggle {
+    display: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+}
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.nav-item {
+    margin-right: 20px;
+}
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+@media(max-width: 768px) {
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-nav {
+        display: none;
+        flex-direction: column;
+        background-color: #007bff;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        z-index: 1;
+    }
+    .nav-item {
+        margin: 10px 0;
+    }
+    .active {
+        display: flex;
+    }
+}
+/* Default styles for main content */
+.main-content {
+display: flex;
+flex-direction: row; /* Display image and text stacked */
+align-items: center; /* Center items horizontally */
+text-align: center; /* Center text */
+margin-top: 1%;
+}
+
+.main-content img {
+max-width: 70%; /* Ensure the image does not exceed the container width */
+height: 100%; /* Maintain aspect ratio */
+border-radius: 10px;
+margin-bottom: 20px;
+}
+
+.container p {
+margin-top: 1%;
+color: slategray;
+margin: 0 auto; /* Center text horizontally */
+letter-spacing: 2px;
+font-size: medium;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.extra{
+display: flex;
+flex-direction: row; /* Display image and text stacked */
+align-items: center; /* Center items horizontally */
+text-align: center; /* Center text */
+margin-top: 1%;
+}
+.extra img{
+max-width: 60%; /* Ensure the image does not exceed the container width */
+height: auto; /* Maintain aspect ratio */
+border-radius: 10px;
+margin-bottom: 20px;
+}
+.extra p{
+margin-top: 1%;
+color: slategray;
+margin: 0 auto; /* Center text horizontally */
+letter-spacing: 1px;
+font-size: medium;
+padding: 1%;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-ser
+}
+/* Media query fo1r smaller screens` */
+@media screen and (max-width: 1000px) {
+.main-content{
+flex-direction: column;
+}
+.main-content img {
+margin-bottom: 10px; /* Decrease margin */
+}
+
+.container p {
+font-size: medium; /* Decrease font size */
+}
+.extra{
+flex-direction: column-reverse;
+}
+.contact{
+flex-direction: column;
+}
+
+}
+.btn{
+color: green;
+margin-top: 3%;
+padding: 2% 5%;
+border-radius: 50px;
+font-size: 1.4em;
+cursor: pointer;
+}
+.features{
+border: 1px solid blue;
+margin: 2%;
+}
+.contact {
+margin-top: -5px;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 2%;
+}
+
+.contact-content {
+display: flex;
+flex-direction: row;
+align-items: center;
+text-align: center;
+}
+
+.contact img {
+max-width: 100%;
+height: auto;
+border-radius: 10px;
+margin-bottom: 20px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+.contact-content {
+flex-direction: column; /* Change flex direction to column for smaller screens */
+}
+
+.contact img {
+width: 70%; /* Reduce image width */
+margin-bottom: 10px; /* Decrease margin */
+}
+}
+
+.image img{
+height: inherit;
+width: inherit;
+}
+.form {
+display: flex;
+flex-direction: column;
+width:70vw;
+padding: 20px;
+border: 1px solid blue;
+border-radius: 5px;
+
+}
+
+.form h2 {
+text-align: center;
+margin-bottom: 15px;
+}
+
+label {
+display: block;
+margin-bottom: 5px;
+font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"] {
+width: 90%;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 3px;
+}
+
+textarea {
+width: 90%;
+padding: 10px;
+border: 1px solid #ddd;
+border-radius: 3px;
+resize: vertical;
+}
+
+input[type="submit"] {
+background-color: #4CAF50;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 15px;
+}
+.footer img{
+width: 100vw;
+}

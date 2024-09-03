@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SIGN UP</title>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background: linear-gradient(to left, #7fafe6, #e7e5e6);
+            }        
+                    
+            .form {
+            display: flex;
+            flex-direction: column;
+            width:50vw;
+            padding: 20px;
+            border: 1px solid blue;
+            border-radius: 5px;
+
+            }
+
+            .form h2 {
+            text-align: center;
+            margin-bottom: 15px;
+            }
+
+            label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            }
+
+            input[type="text"],
+            input[type="email"] {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            }
+
+            textarea {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            resize: vertical;
+            }
+
+            input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            }
+            .footer img{
+            width: 100vw;
+            }
+            #btn{
+                margin:1%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="form">
+            <form>
+                <h2>Sign In</h2>
+                <label for="user-id"> User Id:</label>
+                <input type="text" placeholder="user Id" id="user-id" name="user-id"/>
+                <br>
+                <label for="password"> Password:</label>
+                <input type="text" placeholder="your password" id="password" name="number"/>
+                <input type="button" value="Submit" id="btn" onclick="signin_user();">
+                <a href="signin.html">Don't have any account then, sign up here</a>
+            </form>
+        </div>
+    </body>
+    <script>
+        let userData;
+         async function checkUsers(userId) {
+            try {
+                const response = await fetch(`http://localhost:5000/api/users/${userId}`); // Replace with your API endpoint
+                if (!response.ok) {
+                    alert('This user id not exists');
+                }
+                userData = await response.json();
+        
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        }
+
+        document.getElementById('user-id').addEventListener('input', function() {
+            checkUsers(this.value);
+        });
+        async function signin_user(){
+            const userId=document.getElementById('user-id').value;
+            const password=document.getElementById('password').value;
+            if(userData.password==password){
+                alert('ok');
+                window.location.href=`main.html?userId=${encodeURIComponent(userId)}`;
+            }
+            else{
+                alert("oops password won't matched ...");
+            }
+            document.getElementById('user-id').value='';
+            document.getElementById('password').value='';    
+        }
+    </script>
+</html>

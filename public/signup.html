@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SIGN UP</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(to left, #6aa0dd, #ebd0e0);
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            width: 70vw;
+            max-width: 500px;
+            padding: 20px;
+            border: 1px solid blue;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .form h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        input[type="button"] {
+            background-color: #139917;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        .signin-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .signin-link a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .signin-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <form>
+            <h2>Sign Up</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="your_email@example.com" required>
+            <br>
+            <label for="number">Phone Number:</label>
+            <input type="text" id="number" name="number" placeholder="Phone Number" required>
+            <br>
+            <label for="user-id">User ID:</label>
+            <input type="text" id="user-id" name="user-id" placeholder="User ID" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <br>
+            <input type="button" value="Submit" id="btn" onclick="signup();">
+            <div class="signin-link">
+                <a href="signin.html">Already have an account? Sign in here</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        async function checkUsers(userId) {
+            try {
+                const response = await fetch(`http://localhost:5000/api/users/${userId}`); // Replace with your API endpoint
+                if (!response.ok) {
+                    alert('This User Id already Exists..');
+                    document.getElementById('user-id').value='';
+                }
+                const userData = await response.json();
+                console.log('Not Exists');
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        }
+
+        document.getElementById('user-id').addEventListener('input', function() {
+            checkUsers(this.value);
+        });
+
+        async function signup() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('number').value;
+            const userId = document.getElementById('user-id').value;
+            const password = document.getElementById('password').value;
+            const userData={
+                name,
+                email,
+                phone,
+                userId,
+                password
+            }
+            try{
+                const response= await fetch('http://localhost:5000/api/adduser',{
+                    method:'POST',
+                    headers:{
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData),
+                });
+                  if (response.ok) {
+                    const data = await response.json();
+                    console.log('ok find..');
+                    window.open(`main.html?userId=${encodeURIComponent(userId)}`,'_blank');
+                }
+                else{
+                    console.error('Error add new User', response.statusText);
+                }
+            }
+                catch(error){
+                        console.log(error);
+                }
+                document.querySelector('#name').value = '';
+                document.querySelector('#email').value = '';
+                document.querySelector('#number').value = '';
+                document.querySelector('#user-id').value = '';
+                document.querySelector('#password').value = '';
+        }
+    </script>
+</body>
+</html>

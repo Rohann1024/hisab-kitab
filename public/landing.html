@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hisab Kitab - Bill Payment Spliting</title>
+    <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <img src="../pictures/logo.png" alt="Hisab Kitab Logo">
+            Hisab Kitab
+        </div>
+        <div class="navbar-toggle" onclick="toggleNav()">&#9776;</div>
+        <ul class="navbar-nav" id="navbar-nav">
+            <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contact Us</a></li>
+            <li class="nav-item"><a href="signup.html" class="nav-link">Get Started</a></li>
+            <li class="nav-item"><a href="signin.html" class="nav-link">Sign In</a></li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <img src="../pictures/front2.jpeg" alt="Your Image">
+        <div class="container">
+        <p>Tired of splitting bills with awkward calculations and chasing friends for payments? We've got you covered!  Our website allows you to effortlessly split and share bills with anyone - friends, roommates, or colleagues.  Simply add the bill details, choose your splitting method (equal, custom, or with taxes/tips), and securely share it with everyone.  Track payments in real-time, say goodbye to IOUs, and enjoy a stress-free bill-splitting experience.  Try it now!</p>
+        <a href="signup.html"><input type="button" value="Get Started" class="btn"/></a>
+        </div>
+    </div>
+    <div class="extra">
+                <div id="features" class="features">
+                    <h2>Features</h2>
+                    <div class="list-features">
+                        <p><strong>Effortless Bill Splitting:</strong> Split bills with friends, roommates, or colleagues in a snap. Choose equal splits, customize amounts for each person, or handle tips and taxes with ease.</p>
+<p><strong>Seamless UPI Integration:</strong> Pay and receive payments using any of your UPI IDs for a smooth and secure transaction experience.</p>
+<p><strong>Built-in Chat:</strong> Communicate directly with your group within the platform, eliminating the need for awkward texts or missed messages.</p>
+<p><strong>Real-Time Tracking:</strong> Never lose track of payments again. Our system shows who owes what and sends notifications when payments are due. </p>
+<p><strong>Say Goodbye to IOUs:</strong> Forget messy IOUs. Track payments in real-time and ensure everyone settles their share quickly and easily.</p>
+<p><strong>Secure Transactions:</strong> Rest assured knowing your financial information is protected by our secure payment processing system.</p>
+                    </div>
+                </div>        
+               <img src="../pictures/fonrt1.jpg">
+    </div>
+    <div class="contact" id="contact">
+        <div class="contact-content">
+            <img src="../pictures/contacct.png" alt="Contact Image">
+                <div class="form">
+                    <form action="your_form_action.php" method="post">
+                        <h2>Contact Us</h2>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <br>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="your_email@example.com" required>
+                        <br>
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                        <br>
+                        <input type="submit" value="Send Message">
+                    </form>
+                </div>
+        </div>
+    </div>
+   <div class="footer">
+    <img src="../pictures/front3.jpg">
+   </div> 
+    <script>
+        function toggleNav() {
+            var navbarNav = document.getElementById('navbar-nav');
+            navbarNav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
